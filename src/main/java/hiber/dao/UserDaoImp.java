@@ -17,10 +17,12 @@ public class UserDaoImp implements UserDao {
 
    @Override
    public void add(User user) {
+      sessionFactory.getCurrentSession().save(user.getCar());
       System.out.println(user.getCar().getCar());
-      System.out.println(user.getFirstName());
       sessionFactory.getCurrentSession().save(user);
+
    }
+
 
    @Override
    @SuppressWarnings("unchecked")

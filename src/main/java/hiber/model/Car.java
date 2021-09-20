@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class Car {
 
     @Id
+    @Column(name = "car_id")
     private int id;
 
     @Column(name = "model")

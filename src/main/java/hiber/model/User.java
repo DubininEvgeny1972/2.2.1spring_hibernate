@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
 
-   @OneToOne (cascade=CascadeType.ALL)
+   @OneToOne (optional=false, cascade=CascadeType.ALL)
    @JoinColumn
    private Car car;
 
