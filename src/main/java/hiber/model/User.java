@@ -8,8 +8,8 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
 
-   @OneToOne (optional=false, cascade=CascadeType.ALL)
-   @JoinColumn
+   @OneToOne
+   @JoinColumn(name = "car_id", referencedColumnName = "auto_id")
    private Car car;
 
    public void setCar(Car car) {
@@ -21,7 +21,7 @@ public class User {
    }
 
    @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @GeneratedValue(strategy=GenerationType.IDENTITY)
    private Long id;
 
    @Column(name = "name")
