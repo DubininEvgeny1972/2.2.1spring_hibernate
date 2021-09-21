@@ -44,7 +44,6 @@ public class MainApp {
          if(user.getCar() != null) {
             System.out.println("Car = "+user.getCar().getCar());
          }
-
          System.out.println();
       }
 
