@@ -42,4 +42,8 @@ public class Car {
     public int getSeries() {
         return series;
     }
+
+    public Long getId() {
+        return id;
+    }
 }

@@ -32,6 +32,15 @@ public class MainApp {
       user7.setCar(new Car("Ferary", 4));
       userService.add(user7);
 
+      User user8 = new User("User8", "Lastname8", "user8@mail.ru");
+      user8.setCar(new Car("Ferary", 4));
+      userService.add(user8);
+
+      User user9 = new User("User9", "Lastname9", "user9@mail.ru");
+      user9.setCar(new Car("Ferary", 4));
+      userService.add(user9);
+
+
       List<User> users = userService.listUsers();
       for (User user : users) {
          System.out.println("Id = "+user.getId());
@@ -42,6 +51,11 @@ public class MainApp {
          System.out.println();
       }
 
+      List<User> userAuto = userService.getUserModSer("Ferary", 4);
+
+      for(User u: userAuto){
+         System.out.println(u.getFirstName() + "  " + u.getLastName());
+      }
       context.close();
    }
 }
