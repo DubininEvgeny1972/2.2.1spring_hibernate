@@ -51,10 +51,19 @@ public class MainApp {
          System.out.println();
       }
 
-      List<User> userAuto = userService.getUserModSer("Ferary", 4);
+      List<User> usersAuto = userService.getUserModSer("Ferary", 4);
 
-      for(User u: userAuto){
-         System.out.println(u.getFirstName() + "  " + u.getLastName());
+      System.out.println("Юзеры с автомобилем " + usersAuto.get(0).getCar().getCar()
+              + " серии " + usersAuto.get(0).getCar().getSeries());
+      System.out.println();
+      for(User userAuto: usersAuto){
+
+         System.out.println("Id = "+userAuto.getId());
+         System.out.println("First Name = "+userAuto.getFirstName());
+         System.out.println("Last Name = "+userAuto.getLastName());
+         System.out.println("Email = "+userAuto.getEmail());
+//         System.out.println("Car = "+userAuto.getCar().getCar());
+         System.out.println();
       }
       context.close();
    }
