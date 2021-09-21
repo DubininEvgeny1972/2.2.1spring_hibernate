@@ -15,32 +15,25 @@ public class MainApp {
             new AnnotationConfigApplicationContext(AppConfig.class);
 
       UserService userService = context.getBean(UserService.class);
+      User user1 = new User("User1", "Lastname1", "user1@mail.ru");
+      User user2 = new User("User2", "Lastname2", "user2@mail.ru");
+      User user3 = new User("User3", "Lastname3", "user3@mail.ru");
+      User user4 = new User("User4", "Lastname4", "user4@mail.ru");
 
-      userService.add(new User("User1", "Lastname1", "user1@mail.ru"));
-      userService.add(new User("User2", "Lastname2", "user2@mail.ru"));
-      userService.add(new User("User3", "Lastname3", "user3@mail.ru"));
-      userService.add(new User("User4", "Lastname4", "user4@mail.ru"));
+      Car car1 = new Car("Pegeon", 2);
+      Car car2 = new Car("Renault", 6);
+      Car car3 = new Car("Ferrary", 4);
+      Car car4 = new Car("Audi", 5);
 
-      User user5 = new User("User5", "Lastname5", "user5@mail.ru");
-      user5.setCar(new Car("Pegeon", 2));
-      userService.add(user5);
+      user1.setCar(car1);
+      user2.setCar(car2);
+      user3.setCar(car3);
+      user4.setCar(car4);
 
-      User user6 = new User("User6", "Lastname6", "user6@mail.ru");
-      user6.setCar(new Car("Renault", 6));
-      userService.add(user6);
-
-      User user7 = new User("User7", "Lastname7", "user7@mail.ru");
-      user7.setCar(new Car("Ferary", 4));
-      userService.add(user7);
-
-      User user8 = new User("User8", "Lastname8", "user8@mail.ru");
-      user8.setCar(new Car("Ferary", 4));
-      userService.add(user8);
-
-      User user9 = new User("User9", "Lastname9", "user9@mail.ru");
-      user9.setCar(new Car("Ferary", 4));
-      userService.add(user9);
-
+      userService.add(user1);
+      userService.add(user2);
+      userService.add(user3);
+      userService.add(user4);
 
       List<User> users = userService.listUsers();
       for (User user : users) {
@@ -55,20 +48,13 @@ public class MainApp {
          System.out.println();
       }
 
-      List<User> usersAuto = userService.getUserModSer("Ferary", 4);
+      User userAuto = userService.getUserModSer("Ferrary", 4);
 
-      System.out.println("Юзеры с автомобилем " + usersAuto.get(0).getCar().getCar()
-              + " серии " + usersAuto.get(0).getCar().getSeries());
+      System.out.println("Id = "+userAuto.getId());
+      System.out.println("First Name = "+userAuto.getFirstName());
+      System.out.println("Last Name = "+userAuto.getLastName());
+      System.out.println("Email = "+userAuto.getEmail());
       System.out.println();
-      for(User userAuto: usersAuto){
-
-         System.out.println("Id = "+userAuto.getId());
-         System.out.println("First Name = "+userAuto.getFirstName());
-         System.out.println("Last Name = "+userAuto.getLastName());
-         System.out.println("Email = "+userAuto.getEmail());
-//         System.out.println("Car = "+userAuto.getCar().getCar());
-         System.out.println();
-      }
       context.close();
    }
 }
